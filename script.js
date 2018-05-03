@@ -29,7 +29,7 @@
     print() {
       // Log each contact
       for (let i = 0; i < this.contacts.length; i++) {
-        console.log(this.contacts[i]);        
+        console.log(`N: ${this.contacts[i].name}; E: ${this.contacts[i].email}; P: ${this.contacts[i].phone}; R: ${this.contacts[i].relation}`);        
       };
     }
   }
@@ -39,7 +39,7 @@
     return selection;
   }
 
-  let blankContact = new Contacts("", "", "", "");
+  let blankContact = new Contacts("Anthony", "anthony@adaptivelite.com", "248-231-7660", "Myself");
   let addressBook = new AddressBook(blankContact);
   console.log(addressBook);
   
@@ -55,10 +55,12 @@
           relation: prompt("What is your relation to this contact?")
         }
           addressBook.add(info);
+          addressBook.print();
         break;
       case "r":
         let entry = prompt("Which entry would you like to delete?");
         addressBook.deleteAt(entry);
+        addressBook.print();
         break;
       case "p":
         addressBook.print();
